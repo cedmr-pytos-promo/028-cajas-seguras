@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajas_Seguras | Proyecto_de_Promoción</title>
+
+    <style>
+        /* ESTILOS GENERALES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fb;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        :root {
+            --azul-oscuro: #101d35;
+            --azul: #2563eb;
+            --celeste: #60a5fa;
+            --blanco: #ffffff;
+            --gris: #64748b;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* ENCABEZADO */
+        header {
+            background-color: var(--verde-claro);
+            color: var(--blanco);
+            padding: 18px 0;
+        }
+
+        .barra {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--celeste);
+        }
+
+        .logo span {
+            color: var(--blanco);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: var(--celeste);
+        }
+
+        /* PORTADA PRINCIPAL */
+        .portada {
+            background: linear-gradient(135deg, #101d35, #1e40af);
+            color: var(--blanco);
+            padding: 85px 0;
+        }
+
+        .portada-contenido {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .etiqueta {
+            color: var(--celeste);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .portada h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            line-height: 1.2;
+            margin: 18px 0;
+        }
+
+        .portada p {
+            color: #dbeafe;
+            margin-bottom: 25px;
+        }
+
+        .boton {
+            display: inline-block;
+            background-color: var(--celeste);
+            color: var(--azul-oscuro);
+            padding: 12px 22px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .boton:hover {
+            background-color: var(--blanco);
+        }
+
+        .ilustracion {
+            background-color: #ffffff;
+            color: var(--azul-oscuro);
+            padding: 35px 20px;
+            border-radius: 18px;
+            text-align: center;
+            border: 4px solid #bfdbfe;
+        }
+
+        .ilustracion .icono {
+            font-size: 65px;
+        }
+
+        .ilustracion h3 {
+            margin-top: 10px;
+        }
+
+        .ilustracion p {
+            color: var(--gris);
+            margin: 8px 0 0;
+        }
+
+        /* SECCIONES */
+        section {
+            padding: 65px 0;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .titulo-seccion h2 {
+            font-size: 30px;
+            color: var(--azul-oscuro);
+            margin-bottom: 8px;
+        }
+
+        .titulo-seccion p {
+            color: var(--gris);
+        }
+
+        /* TARJETAS */
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .tarjeta {
+            background-color: var(--blanco);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 5px 18px #0f172a0a;
+        }
+
+        .tarjeta .icono {
+            font-size: 30px;
+        }
+
+        .tarjeta h3 {
+            color: var(--azul);
+            margin: 12px 0;
+        }
+
+        .tarjeta p {
+            color: var(--gris);
+            font-size: 14px;
+        }
+
+        /* OBJETIVOS */
+        .objetivos {
+            background-color: #eaf2ff;
+        }
+
+        .lista-objetivos {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .lista-objetivos li {
+            background: var(--blanco);
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            list-style-position: inside;
+        }
+
+        /* ETAPAS */
+        .etapas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .etapa {
+            background: var(--blanco);
+            border-top: 5px solid var(--azul);
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .etapa span {
+            color: var(--azul);
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .etapa h3 {
+            margin: 10px 0;
+        }
+
+        .etapa p {
+            color: var(--gris);
+            font-size: 14px;
+        }
+
+        /* EQUIPO */
+        .equipo {
+            text-align: center;
+            background: var(--blanco);
+        }
+
+        .equipo p {
+            color: var(--gris);
+            max-width: 700px;
+            margin: 10px auto;
+        }
+
+        /* PIE DE PAGINA */
+        footer {
+            background: var(--azul-oscuro);
+            color: var(--blanco);
+            text-align: center;
+            padding: 28px 15px;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: #cbd5e1;
+            margin-top: 5px;
+        }
+
+        /* ADAPTACION A CELULARES */
+        @media (max-width: 800px) {
+            .portada-contenido {
+                grid-template-columns: 1fr;
+            }
+
+            .tarjetas,
+            .etapas {
+                grid-template-columns: 1fr;
+            }
+
+            .barra {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .portada {
+                padding: 55px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO Y MENU -->
+    <header>
+        <div class="contenedor barra">
+            <div class="logo">Cajas<span>Seguras</span></div>
+
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#proyecto">Proyecto</a>
+                <a href="#objetivos">Objetivos</a>
+                <a href="#avances">Avances</a>
+                <a href="#integrantes">Integrantes</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- PORTADA -->
+    <main>
+        <section class="portada" id="inicio">
+            <div class="contenedor portada-contenido">
+
+                <div>
+                    <span class="etiqueta">
+                        PROYECTO DE PROMOCIÓN · BATÍN
+                    </span>
+
+                    <h1>Una mejor forma de proteger los celulares.</h1>
+
+                    <p>
+                        Diseño de un sistema de almacenamiento
+                        compartimentado para organizar y proteger
+                        los celulares de los estudiantes de la institución 
+                        C.E.D. Miguela Rodríguez Araujo.
+                    </p>
+
+                    <a href="#proyecto" class="boton">
+                        Conocer el proyecto
+                    </a>
+                </div>
+
+                <div class="ilustracion">
+                    <div class="icono">📱</div>
+                    <h3>Almacenamiento seguro</h3>
+                    <p>
+                        Propuesta inicial para una caja con 30 
+                        compartimentos individuales para celulares.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DESCRIPCION DEL PROYECTO -->
+        <section id="proyecto">
+            <div class="contenedor">
+
+                <div class="titulo-seccion">
+                    <h2>Sobre el proyecto</h2>
+                    <p>
+                        Una solución técnica para una necesidad real.
+                    </p>
+                </div>
+
+                <div class="tarjetas">
+
+                    <article class="tarjeta">
+                        <div class="icono">🔎</div>
+                        <h3>El problema</h3>
+                        <p>
+                            Los celulares se almacenan apilados
+                            en una caja común, lo que puede aumentar
+                            el riesgo de daños por presión y contacto.
+                        </p>
+                    </article>
+
+                    <article class="tarjeta">
+                        <div class="icono">🛠️</div>
+                        <h3>La propuesta</h3>
+                        <p>
+                            Diseñar un sistema con compartimentos
+                            individuales que permita organizar y
+                            proteger hasta 30 celulares.
+                        </p>
+                    </article>
+
+                    <article class="tarjeta">
+                        <div class="icono">🎯</div>
+                        <h3>La finalidad</h3>
+                        <p>
+                            Contribuir al cuidado de los dispositivos
+                            y fomentar la responsabilidad sobre
+                            los recursos tecnológicos.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- OBJETIVOS -->
+        <section class="objetivos" id="objetivos">
+            <div class="contenedor">
+
+                <div class="titulo-seccion">
+                    <h2>Objetivos del proyecto</h2>
+                    <p>Lo que buscamos alcanzar.</p>
+                </div>
+
+                <div class="lista-objetivos">
+                    <ul>
+                        <li>
+                            Identificar los principales daños fisicos
+                            y termicos que pueden sufrir los celulares.
+                        </li>
+                        <li>
+                            Determinar la capacidad, las dimensiones
+                            y los materiales necesarios.
+                        </li>
+                        <li>
+                            Evaluar la viabilidad técnica y económica
+                            de la propuesta.
+                        </li>
+                        <li>
+                            Diseñar el sistema y documentar sus
+                            avances durante los tres años.
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- AVANCES Y ETAPAS -->
+        <section id="avances">
+            <div class="contenedor">
+
+                <div class="titulo-seccion">
+                    <h2>Etapas del proyecto</h2>
+                    <p>
+                        Un proceso de desarrollo organizado en tres años.
+                    </p>
+                </div>
+
+                <div class="etapas">
+
+                    <article class="etapa">
+                        <span>ETAPA 1_1°Año</span>
+                        <h3>Anteproyecto</h3>
+                        <p>
+                            Análisis del problema, diseño conceptual,
+                            estudio de viabilidad y planificación inicial.
+                        </p>
+			<a href="Etapa1.html">Desarrolo de la primera etapa</a>
+                    </article>
+
+                    <article class="etapa">
+                        <span>ETAPA 2_2°Año</span>
+                        <h3>Desarrollo</h3>
+                        <p>
+                            Construcción del prototipo y registro
+                            de los materiales y avances obtenidos.
+                        </p>
+                    </article>
+
+                    <article class="etapa">
+                        <span>ETAPA 3_3°Año</span>
+                        <h3>Evaluación final</h3>
+                        <p>
+                            Pruebas, mejoras, documentación técnica
+                            y presentación de los resultados.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Integrantes -->
+        <section class="integrantes" id="integrantes">
+            <div class="contenedor">
+                <div class="titulo-seccion">
+                    <h2>Equipo de trabajo</h2>
+                    <p>
+                        Irene Muñoz-
+                        Antonella Nuñez-
+			Antonella Cañete.
+                    </p>
+                </div>
+
+                <p>
+                    Nuestro equipo trabaja de forma colaborativa
+                    para investigar, diseñar y desarrollar una
+                    solución que responda a las necesidades
+                    de nuestra institución educativa.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer>
+        <strong>CELLGUARD | Proyecto de Promoción</strong>
+        <p>
+            C.E.D. Miguela Rodríguez Araujo
+        </p>
+        <p>
+            Bachillerato Técnico en Informática · Etapa 1 de 3
+        </p>
+    </footer>
+
+</body>
+</html>
